@@ -36,7 +36,12 @@ jobs:
           cd "$PROJECT_DIR"
           mkdir -p hasil_apk
           
-          echo "4. Memaksa penulisan file export_presets.cfg otomatis..."
+          echo "4a. Memaksa pengaturan kompresi tekstur ETC2/ASTC..."
+          echo "" >> project.godot
+          echo "[rendering]" >> project.godot
+          echo "textures/vram_compression/import_etc2_astc=true" >> project.godot
+          
+          echo "4b. Memaksa penulisan file export_presets.cfg otomatis..."
           cat <<EOF > export_presets.cfg
           [preset.0]
           name="Android"
